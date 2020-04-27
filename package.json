@@ -1,14 +1,14 @@
 {
   "name": "tahsin",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A personal card for Mohammad Tahsin",
   "main": "/bin/card.js",
   "bin": {
-    "bitandbang": "./bin/card.js"
+    "tahsin": "./bin/card.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bnb/bitandbang.git"
+    "url": "git+https://github.com/tahsinature/card.git"
   },
   "homepage": "https://tahsin.codes",
   "scripts": {
