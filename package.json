@@ -1,6 +1,6 @@
 {
   "name": "tahsin",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "A personal card for Mohammad Tahsin",
   "main": "/bin/card.js",
   "bin": {
