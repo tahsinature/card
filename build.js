@@ -22,6 +22,7 @@ const data = {
   facebook: chalk.gray('https://facebook.com/') + chalk.cyan('t4h51n'),
   instagram: chalk.gray('https://instagram.com/') + chalk.cyan('t4h51n'),
   npm: chalk.gray('https://npmjs.com/') + chalk.red('~tahsin'),
+  pypi: chalk.gray('https://pypi.org/user/') + chalk.red('tahsinature'),
   github: chalk.gray('https://github.com/') + chalk.green('tahsinature'),
   linkedin: chalk.gray('https://linkedin.com/in/') + chalk.blue('t4h51n'),
   web: chalk.cyan('https://tahsin.codes'),
@@ -29,6 +30,7 @@ const data = {
   labelWork: chalk.white.bold('       Work:'),
   labelTwitter: chalk.white.bold('    Twitter:'),
   labelnpm: chalk.white.bold('        npm:'),
+  labelpypi: chalk.white.bold('       PyPI:'),
   labelGitHub: chalk.white.bold('     GitHub:'),
   labelLinkedIn: chalk.white.bold('   LinkedIn:'),
   labelFacebook: chalk.white.bold('   Facebook:'),
@@ -45,6 +47,7 @@ const twittering = `${data.labelTwitter}  ${data.twitter}`;
 const facebooking = `${data.labelFacebook}  ${data.facebook}`;
 const instagramming = `${data.labelInstagram}  ${data.instagram}`;
 const npming = `${data.labelnpm}  ${data.npm}`;
+const pyping = `${data.labelpypi}  ${data.pypi}`;
 const githubing = `${data.labelGitHub}  ${data.github}`;
 const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`;
 const webing = `${data.labelWeb}  ${data.web}`;
@@ -67,6 +70,8 @@ const output =
   linkedining +
   newline + // data.labelnpm + data.npm
   githubing +
+  newline + // data.labelGitHub + data.github
+  pyping +
   newline + // data.labelGitHub + data.github
   npming +
   newline + // data.labelLinkedIn + data.linkedin
