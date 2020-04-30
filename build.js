@@ -1,10 +1,11 @@
 'use strict';
 
 // Pull in our modules
-const chalk = require('chalk');
-const boxen = require('boxen');
 const fs = require('fs');
+const boxen = require('boxen');
+const chalk = require('chalk').default;
 const path = require('path');
+const data = require('./data.json');
 
 // Define options for Boxen
 const options = {
@@ -13,68 +14,27 @@ const options = {
   borderStyle: 'round',
 };
 
-// Text + chalk definitions
-const data = {
-  name: chalk.white('              Mohammad Tahsin'),
-  work: chalk.white('Software Developer at HaloJasa'),
-  // opensource: chalk.white("Node.js Community Committee ") + chalk.green("⬢"),
-  twitter: chalk.gray('https://twitter.com/') + chalk.blue('t4h51n'),
-  facebook: chalk.gray('https://facebook.com/') + chalk.blue('t4h51n'),
-  instagram: chalk.gray('https://instagram.com/') + chalk.blue('t4h51n'),
-  npm: chalk.gray('https://npmjs.com/') + chalk.blue('~tahsin'),
-  pypi: chalk.gray('https://pypi.org/user/') + chalk.blue('tahsinature'),
-  github: chalk.gray('https://github.com/') + chalk.blue('tahsinature'),
-  linkedin: chalk.gray('https://linkedin.com/in/') + chalk.blue('t4h51n'),
-  web: chalk.cyan('https://tahsin.codes'),
-  npx: chalk.red('npx') + ' ' + chalk.white('@bnb/card  (via GitHub Package Registry)'),
-  labelWork: chalk.white.bold('       Work:'),
-  labelTwitter: chalk.white.bold('    Twitter:'),
-  labelnpm: chalk.white.bold('        npm:'),
-  labelpypi: chalk.white.bold('       PyPI:'),
-  labelGitHub: chalk.white.bold('     GitHub:'),
-  labelLinkedIn: chalk.white.bold('   LinkedIn:'),
-  labelFacebook: chalk.white.bold('   Facebook:'),
-  labelInstagram: chalk.white.bold('  Instagram:'),
-  labelWeb: chalk.white.bold('        Web:'),
-  labelCard: chalk.white.bold('       Card:'),
+const longestWord = data.links.reduce((pv, cv) => (pv > cv.platform.length ? pv : cv.platform.length), 0);
+
+const templateParse = str => {
+  let templatted = str.match(/{\w+}/);
+  if (!templatted) return chalk.cyan(str);
+  else templatted = templatted[0];
+  const word = templatted.slice(1, templatted.length - 1);
+  const result = chalk.gray(str.replace(/{\w+}/, chalk.blue(word)));
+  return result;
 };
 
-// Actual strings we're going to output
-const newline = '\n';
-const heading = `${data.name}`;
-const working = `${data.labelWork}  ${data.work}`;
-const twittering = `${data.labelTwitter}  ${data.twitter}`;
-const facebooking = `${data.labelFacebook}  ${data.facebook}`;
-const instagramming = `${data.labelInstagram}  ${data.instagram}`;
-const npming = `${data.labelnpm}  ${data.npm}`;
-const pyping = `${data.labelpypi}  ${data.pypi}`;
-const githubing = `${data.labelGitHub}  ${data.github}`;
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`;
-const webing = `${data.labelWeb}  ${data.web}`;
-const carding = `${data.labelCard}  ${data.npx}`;
+const spacify = word => {
+  return `${Array(longestWord - word.length)
+    .fill(' ')
+    .join('')}${chalk.white.bold(word)}${word ? chalk.white.bold(':') : ' '}  `;
+};
 
-// Put all our output together into a single variable so we can use boxen effectively
-const output =
-  heading + // data.name + data.handle
-  newline +
-  newline + // Add one whole blank line
-  working +
-  newline + // data.labelWork + data.work
-  newline + // data.labelOpenSource + data.opensource
-  facebooking +
-  newline + // data.labelFacebook + data.facebook
-  instagramming +
-  newline + // data.labelFacebook + data.facebook
-  twittering +
-  newline + // data.labelTwitter + data.twitter
-  linkedining +
-  newline + // data.labelnpm + data.npm
-  githubing +
-  newline + // data.labelGitHub + data.github
-  pyping +
-  newline + // data.labelGitHub + data.github
-  npming +
-  newline + // data.labelLinkedIn + data.linkedin
-  webing;
+const links = data.links.reduce((pv, cv, i) => {
+  return pv + `${spacify(cv.platform)}${templateParse(cv.url)}${i === data.links.length - 1 ? '' : '\n'}`;
+}, '');
+
+const output = `${spacify('') + data.name}\n\n${spacify('Work')}${chalk.white(`${data.work.position} at ${data.work.at}`)}\n\n${links}`;
 
 fs.writeFileSync(path.join(__dirname, 'bin/output'), chalk.green(boxen(output, options)));
