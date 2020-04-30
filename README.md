@@ -2,13 +2,29 @@ It's me, Tahsin!
 
 # Usage
 
-## npm
+<br />
+
+## From you terminal
+
+Assuming you have node and npm installed
+
 ```
 npx tahsin
 ```
 
-## GitHub Package Registry
-Assuming you have node and npm installed
+<br />
+<br />
+
+## Dev
+
 ```
-npx tahsin
+npm i
+```
+
+```
+node ./bin/card.js
+```
+
+```
+nodemon ./bin/card.js
 ```
