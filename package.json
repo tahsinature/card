@@ -12,6 +12,7 @@
   },
   "homepage": "https://tahsin.codes",
   "scripts": {
+    "test": "echo no test",
     "prepublish": "npm run build",
     "build": "node build.js",
     "dev": "nodemon --exec 'npm run build && node ./bin/card.js'",
