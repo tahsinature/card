@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/tahsinature/card.git"
   },
-  "homepage": "https://tahsin.codes",
+  "homepage": "https://tahsinature.me",
   "scripts": {
     "test": "echo no test",
     "prepublish": "npm run build",
