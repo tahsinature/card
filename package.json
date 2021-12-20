@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/tahsinature/card.git"
   },
-  "homepage": "https://tahsinature.me",
+  "homepage": "https://tahsin.us",
   "scripts": {
     "test": "echo no test",
     "prepublish": "npm run build",
@@ -26,7 +26,7 @@
     "npx card",
     "business card"
   ],
-  "author": "Mohammad Tahsin <tahsingenuies@gmail.com> (http://tahsin.codes)",
+  "author": "Mohammad Tahsin <tahsingenuies@gmail.com> (https://tahsin.us)",
   "license": "MIT",
   "files": [
     "bin/card.js",
@@ -35,6 +35,7 @@
   "devDependencies": {
     "boxen": "^2.1.0",
     "chalk": "^2.4.1",
+    "nodemon": "^2.0.15",
     "standard": "^12.0.1"
   },
   "bugs": {
