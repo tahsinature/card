@@ -1,8 +1,8 @@
 {
   "name": "Mohammad Tahsin",
   "work": {
-    "position": "Lead Software Engineer (BackEnd)",
-    "at": "TerasWork"
+    "position": "Software Engineer",
+    "at": "CARFAX"
   },
   "links": [
     {
@@ -24,14 +24,6 @@
     {
       "platform": "GitHub",
       "url": "https://github.com/{tahsinature}"
-    },
-    {
-      "platform": "PyPI",
-      "url": "https://pypi.org/user/{tahsinature}"
-    },
-    {
-      "platform": "npm",
-      "url": "https://npmjs.com/~{tahsin}"
     },
     {
       "platform": "Web",
